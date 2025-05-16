@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{% static 'output.css' %}" rel="stylesheet" />
+    <title>Abdul Amaan -Projects</title>
+  </head>
+  <body class="bg-bg">
+    <div class="projects">
+      <div class="skill-heading">
+        <h2
+          class="text-accent text-2xl font-sub-title mt-[10%] text-center sm:text-4xl"
+        >
+          /past-missions
+        </h2>
+      </div>
+      <div class="past-mission-list font-cli-text text-text px-4 py-8">
+        <!-- Container centers the grid -->
+        <div class="max-w-screen-xl mx-auto">
+          <!-- Grid auto-distributes with spacing between and centered -->
+          <div
+            class="flex flex-wrap gap-6 justify-center max-w-screen-xl mx-auto px-4 py-10"
+          >
+            {% if project_post_list %} {% for project in project_post_list %}
+            <!-- Mission Card -->
+            <div
+              class="border-2 border-success rounded-xl p-6 bg-bg w-full max-w-xs sm:max-w-sm md:max-w-md text-center text-text font-cli-text"
+            >
+              <!-- Title -->
+              <h2 class="text-2xl font-bold mb-6">{{project.title}}</h2>
+
+              <!-- Tools Used -->
+              <div>
+                <h3 class="text-xl font-bold mb-3">Tools Used:</h3>
+                <div class="flex flex-wrap justify-center gap-3">
+                  {% for tool in project.tools_used.all %}
+                  <span
+                    class="bg-success text-text px-3 py-1 rounded font-mono text-sm"
+                    >{{tool}}</span
+                  >
+                  {% endfor %}
+                </div>
+              </div>
+
+              <!-- Description -->
+              <div class="mt-8">
+                <h3 class="text-xl font-bold mb-3">Description:</h3>
+                <p class="text-sm font-light leading-relaxed tracking-wide">
+                  {{project.description}}
+                </p>
+              </div>
+
+              <!-- Button -->
+              <div class="mt-8">
+                <a href="/{{project.slug}}/project/">
+                  <button
+                    class="bg-danger hover:bg-primary text-bg font-bold px-5 py-2 rounded transition"
+                  >
+                    Access the Briefing
+                  </button>
+                </a>
+              </div>
+            </div>
+            {% endfor %} {% endif %}
+
+            <!--more card-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

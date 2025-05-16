@@ -1,0 +1,13 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{% static 'output.css' %}" rel="stylesheet" />
+    <title>{{ post.title }}</title>
+  </head>
+  <body class="text-text prose bg-bg">
+    <div class="text-text">{{ post.body_rendered | safe }}</div>
+  </body>
+</html>

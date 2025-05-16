@@ -1,0 +1,319 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{% static 'output.css' %}" rel="stylesheet" />
+
+    <title>Abdul Amaan</title>
+  </head>
+  <body class="bg-bg">
+    <div class="Hero">
+      <div class="flex justify-evenly">
+        <h1
+          class="text-text text-5xl font-title mt-[15%] text-center sm:text-9xl"
+        >
+          Abdul Amaan
+        </h1>
+      </div>
+      <div class="flex justify-evenly">
+        <div>
+          <h2
+            class="text-accent text-2xl font-sub-title mt-[5%] text-center sm:text-4xl"
+          >
+            Design. Code. Solve.
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div
+      class="terminal text-primary font-cli-text mt-[25%] text-base text-center"
+    >
+      <div id="typewriter"></div>
+    </div>
+    <div class="skills">
+      <div class="skill-heading">
+        <h2
+          class="text-accent text-2xl font-sub-title mt-[20%] text-center sm:text-4xl"
+        >
+          /skills-acquired
+        </h2>
+      </div>
+      <div class="skill-items flex justify-center pr-[4%] pl-[4%]">
+        <div
+          class="skill-list flex flex-wrap md:flex justify-evenly gap-6 md:max-w-2xl w-full"
+        >
+          <div class="skill-item justify-items-center mt-[5%]">
+            <span
+              class="icon-[akar-icons--python-fill]"
+              style="width: 2em; height: 2em; color: #00f58a"
+            ></span>
+            <div class="text-text text-base font-cli-text sm:text-2xl">
+              Python.
+            </div>
+          </div>
+          <div class="skill-item justify-items-center mt-[5%]">
+            <span
+              class="icon-[devicon-plain--django]"
+              style="width: 2em; height: 2em; color: #00f58a"
+            ></span>
+            <div class="text-text text-base font-cli-text sm:text-2xl">
+              Django.
+            </div>
+          </div>
+          <div class="skill-item justify-items-center mt-[5%]">
+            <span
+              class="icon-[devicon-plain--djangorest]"
+              style="width: 2em; height: 2em; color: #00f58a"
+            ></span>
+            <div class="text-text text-base font-cli-text sm:text-2xl">
+              Django Rest Framework.
+            </div>
+          </div>
+          <div class="skill-item justify-items-center mt-[5%]">
+            <span
+              class="icon-[akar-icons--react-fill]"
+              style="width: 2em; height: 2em; color: #00f58a"
+            ></span>
+            <div class="text-text text-base font-cli-text sm:text-2xl">
+              React.
+            </div>
+          </div>
+          <div class="skill-item justify-items-center mt-[5%]">
+            <span
+              class="icon-[ant-design--docker-outlined]"
+              style="width: 2em; height: 2em; color: #00f58a"
+            ></span>
+            <div class="text-text text-base font-cli-text sm:text-2xl">
+              Docker.
+            </div>
+          </div>
+          <div class="skill-item justify-items-center mt-[5%]">
+            <span
+              class="icon-[cib--postgresql]"
+              style="width: 2em; height: 2em; color: #00f58a"
+            ></span>
+            <div class="text-text text-base font-cli-text sm:text-2xl">
+              PostgreSQL.
+            </div>
+          </div>
+          <div class="skill-item justify-items-center mt-[5%]">
+            <span
+              class="icon-[fontisto--aws]"
+              style="width: 2em; height: 2em; color: #00f58a"
+            ></span>
+            <div class="text-text text-base font-cli-text sm:text-2xl">
+              AWS.
+            </div>
+          </div>
+          <div class="skill-item justify-items-center mt-[5%]">
+            <span
+              class="icon-[cib--nginx]"
+              style="width: 2em; height: 2em; color: #00f58a"
+            ></span>
+            <div class="text-text text-base font-cli-text sm:text-2xl">
+              Nginx.
+            </div>
+          </div>
+          <div class="skill-item justify-items-center mt-[5%]">
+            <span
+              class="icon-[bi--git]"
+              style="width: 2em; height: 2em; color: #00f58a"
+            ></span>
+            <div class="text-text text-base font-cli-text sm:text-2xl">
+              Git.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="projects">
+      <div class="skill-heading">
+        <h2
+          class="text-accent text-2xl font-sub-title mt-[10%] text-center sm:text-4xl"
+        >
+          /past-missions
+        </h2>
+      </div>
+      <div class="past-mission-list font-cli-text text-text px-4 py-8">
+        <!-- Container centers the grid -->
+        <div class="max-w-screen-xl mx-auto">
+          <!-- Grid auto-distributes with spacing between and centered -->
+          <div class="flex flex-wrap justify-center gap-6 max-w-screen-xl px-4">
+            <!-- Mission Card -->
+            {% if latest_project_post %} {% for post in latest_project_post %}
+            <div
+              class="border-2 border-success rounded-xl p-6 bg-bg w-full max-w-xs sm:max-w-sm md:max-w-md text-center text-text font-cli-text"
+            >
+              <!-- Title -->
+              <h2 class="text-2xl font-bold mb-6">{{post.title}}</h2>
+
+              <!-- Tools Used -->
+              <div>
+                <h3 class="text-xl font-bold mb-3">Tools Used:</h3>
+
+                <div class="flex flex-wrap justify-center gap-3">
+                  {% for tool in post.tools_used.all %}
+                  <span
+                    class="bg-success text-text px-3 py-1 rounded font-mono text-sm"
+                    >{{tool}}</span
+                  >
+                  {% endfor %}
+                </div>
+              </div>
+
+              <!-- Description -->
+              <div class="mt-8">
+                <h3 class="text-xl font-bold mb-3">Description:</h3>
+                <p class="text-sm font-light leading-relaxed tracking-wide">
+                  {{post.description}}
+                </p>
+              </div>
+
+              <!-- Button -->
+              <div class="mt-8">
+                <a href="{{ post.slug }}/project/">
+                  <button
+                    class="bg-danger hover:bg-primary text-bg font-bold px-5 py-2 rounded transition"
+                  >
+                    Access the Briefing
+                  </button>
+                </a>
+              </div>
+            </div>
+            {% endfor %} {% endif %}
+          </div>
+        </div>
+        <div class="flex items-center justify-center h-screen mt-[5%]">
+          <a href="/projects/">
+            <button
+              class="bg-danger hover:bg-primary text-bg font-bold px-5 py-2 rounded transition"
+            >
+              >>cd more_past_missions
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!--Intel Report-->
+    <div class="blog">
+      <div class="intel-report-heading">
+        <h2
+          class="text-accent text-2xl font-sub-title mt-[10%] text-center sm:text-4xl"
+        >
+          /intel-reports
+        </h2>
+      </div>
+      <div class="intel-report-list">
+        <div
+          class="flex flex-wrap gap-6 justify-center max-w-screen-xl mx-auto px-4 py-10"
+        >
+          {% if latest_blog_post %} {% for post in latest_blog_post %}
+          <div
+            class="border border-dashed border-border p-4 max-w-[260px] w-full bg-bg text-text font-mono text-sm leading-relaxed"
+          >
+            <p><span class="font-bold">Report:</span> {{post.title}}</p>
+            <p class="mt-2">
+              <span class="font-bold">Date:</span> {{post.created_on|date}}
+            </p>
+            {% for tag in post.tags.all %}
+            <p class="mt-2"><span class="font-bold">Tags:</span> {{tag}}</p>
+            {% endfor %}
+            <p class="mt-2">
+              <span class="font-bold">Summary:</span>
+              {{post.summary}}
+            </p>
+            <div class="mt-4 text-center">
+              <a href="{{ post.slug }}/blog/">
+                <button
+                  class="bg-danger hover:bg-primary text-bg font-bold px-4 py-2 rounded transition"
+                >
+                  View Operation Log
+                </button>
+              </a>
+            </div>
+          </div>
+          {% endfor %} {% endif %}
+        </div>
+        <div class="flex items-center justify-center h-screen mt-[5%]">
+          <a href="/blog/">
+            <button
+              class="bg-danger hover:bg-primary text-bg font-bold px-5 py-2 rounded transition"
+            >
+              >>cd more_intel_reports
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!--contact form-->
+    <div class="contact-form-section">
+      <div class="intel-report-heading">
+        <h2
+          class="text-accent text-2xl font-sub-title mt-[10%] text-center sm:text-4xl"
+        >
+          /contact-the-agent
+        </h2>
+        <div
+          class="contact-form mt-[3%] flex items-center justify-center bg-bg px-4"
+        >
+          <form
+            class="font-mono text-sm text-primary space-y-6 bg-bg p-6 max-w-md w-full"
+          >
+            <!-- Header -->
+            <p class="text-primary">
+              >> Secure line activated. Proceed with intent.
+            </p>
+
+            <!-- Name -->
+            <label class="block">
+              >> Name: <span class="font-bold">--identify-as</span><br />
+              <input
+                type="text"
+                name="name"
+                placeholder="Agent Name"
+                class="mt-1 w-full bg-success border border-border text-primary p-2 rounded outline-none focus:border-primary focus:ring-0 font-cli-text"
+              />
+            </label>
+
+            <!-- Email -->
+            <label class="block">
+              >> Email: <span class="font-bold">--reply-to</span><br />
+              <input
+                type="email"
+                name="email"
+                placeholder="agent@hq.com"
+                class="mt-1 w-full bg-success border font-cli-text border-border text-primary p-2 rounded outline-none focus:border-primary focus:ring-0"
+              />
+            </label>
+
+            <!-- Message -->
+            <label class="block">
+              >> Message: <span class="font-bold">--transmit-intel</span><br />
+              <textarea
+                name="message"
+                rows="5"
+                placeholder="Encrypted message..."
+                class="mt-1 w-full bg-success border border-border text-primary p-2 rounded outline-none focus:border-primary focus:ring-0 font-cli-text"
+              ></textarea>
+            </label>
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              class="bg-danger hover:bg-primary text-bg font-bold px-4 py-2 rounded transition"
+            >
+              Launch Request
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script src="{% static 'animations.js' %}"></script>
+  </body>
+</html>

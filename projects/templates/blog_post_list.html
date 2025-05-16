@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{% static 'output.css' %}" rel="stylesheet" />
+    <title>Abdul Amaan -Blog</title>
+  </head>
+  <body class="bg-bg">
+    <div class="blog">
+      <div class="intel-report-heading">
+        <h2
+          class="text-accent text-2xl font-sub-title mt-[10%] text-center sm:text-4xl"
+        >
+          /intel-reports
+        </h2>
+      </div>
+      <div class="intel-report-list">
+        <div
+          class="flex flex-wrap gap-6 justify-center max-w-screen-xl mx-auto px-4 py-10"
+        >
+          {% if blog_post_list %} {% for post in blog_post_list %}
+          <div
+            class="border border-dashed border-border p-4 max-w-[260px] w-full bg-bg text-text font-mono text-sm leading-relaxed"
+          >
+            <p><span class="font-bold">Report:</span> {{post.title}}</p>
+            <p class="mt-2">
+              <span class="font-bold">Date:</span> {{post.created_on|date}}
+            </p>
+            {% for tag in post.tags.all %}
+            <p class="mt-2"><span class="font-bold">Tags:</span> {{tag}}</p>
+            {% endfor %}
+            <p class="mt-2">
+              <span class="font-bold">Summary:</span>
+              {{post.summary}}
+            </p>
+            <div class="mt-4 text-center">
+              <a href="/{{ post.slug }}/blog/">
+                <button
+                  class="bg-danger hover:bg-primary text-bg font-bold px-4 py-2 rounded transition"
+                >
+                  View Operation Log
+                </button>
+              </a>
+            </div>
+          </div>
+          {% endfor %} {% endif %}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!-- 
+{% for post in blog_post_list %}
+      <li><a href="/blog/{{ post.slug }}"> {{ post.title }} </a></li>
+      {% endfor %} -->
