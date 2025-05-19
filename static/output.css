@@ -1,0 +1,1560 @@
+/*! tailwindcss v4.1.5 | MIT License | https://tailwindcss.com */
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@layer properties;
+@layer theme, base, components, utilities;
+@layer theme {
+  :root,
+  :host {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace;
+    --spacing: 0.25rem;
+    --breakpoint-xl: 80rem;
+    --container-xs: 20rem;
+    --container-sm: 24rem;
+    --container-md: 28rem;
+    --container-2xl: 42rem;
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-base: 1rem;
+    --text-base--line-height: calc(1.5 / 1);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
+    --text-9xl: 8rem;
+    --text-9xl--line-height: 1;
+    --font-weight-light: 300;
+    --font-weight-bold: 700;
+    --tracking-wide: 0.025em;
+    --leading-relaxed: 1.625;
+    --radius-xl: 0.75rem;
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+    --color-primary: #00f58a;
+    --color-accent: #2e86ab;
+    --color-bg: #0d0d0d;
+    --color-text: #eaeaea;
+    --color-danger: #f64c72;
+    --color-success: #1c1c1c;
+    --color-border: #7c7c7c;
+    --font-title: "Major Mono Display";
+    --font-sub-title: "Poppins";
+    --font-cli-text: "Space Mono";
+  }
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  html,
+  :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family: var(
+      --default-font-family,
+      ui-sans-serif,
+      system-ui,
+      sans-serif,
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      "Segoe UI Symbol",
+      "Noto Color Emoji"
+    );
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+
+  b,
+  strong {
+    font-weight: bolder;
+  }
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: var(
+      --default-mono-font-family,
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      "Liberation Mono",
+      "Courier New",
+      monospace
+    );
+    font-feature-settings: var(--default-mono-font-feature-settings, normal);
+    font-variation-settings: var(
+      --default-mono-font-variation-settings,
+      normal
+    );
+    font-size: 1em;
+  }
+  small {
+    font-size: 80%;
+  }
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+  :-moz-focusring {
+    outline: auto;
+  }
+  progress {
+    vertical-align: baseline;
+  }
+  summary {
+    display: list-item;
+  }
+  ol,
+  ul,
+  menu {
+    list-style: none;
+  }
+  img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object {
+    display: block;
+    vertical-align: middle;
+  }
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+  button,
+  input,
+  select,
+  optgroup,
+  textarea,
+  ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+  }
+  :where(select:is([multiple], [size])) optgroup {
+    font-weight: bolder;
+  }
+  :where(select:is([multiple], [size])) optgroup option {
+    padding-inline-start: 20px;
+  }
+  ::file-selector-button {
+    margin-inline-end: 4px;
+  }
+  ::placeholder {
+    opacity: 1;
+  }
+  @supports (not (-webkit-appearance: -apple-pay-button)) or
+    (contain-intrinsic-size: 1px) {
+    ::placeholder {
+      color: currentcolor;
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+  }
+  textarea {
+    resize: vertical;
+  }
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+  ::-webkit-datetime-edit {
+    display: inline-flex;
+  }
+  ::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+  ::-webkit-datetime-edit,
+  ::-webkit-datetime-edit-year-field,
+  ::-webkit-datetime-edit-month-field,
+  ::-webkit-datetime-edit-day-field,
+  ::-webkit-datetime-edit-hour-field,
+  ::-webkit-datetime-edit-minute-field,
+  ::-webkit-datetime-edit-second-field,
+  ::-webkit-datetime-edit-millisecond-field,
+  ::-webkit-datetime-edit-meridiem-field {
+    padding-block: 0;
+  }
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+  button,
+  input:where([type="button"], [type="reset"], [type="submit"]),
+  ::file-selector-button {
+    appearance: button;
+  }
+  ::-webkit-inner-spin-button,
+  ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  [hidden]:where(:not([hidden="until-found"])) {
+    display: none !important;
+  }
+}
+
+@layer utilities {
+  .visible {
+    visibility: visible;
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .prose {
+    color: var(--tw-prose-body);
+    max-width: 65ch;
+    :where(p):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      margin-top: 1.25em;
+      margin-bottom: 1.25em;
+    }
+    :where([class~="lead"]):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      color: var(--tw-prose-lead);
+      font-size: 1.25em;
+      line-height: 1.6;
+      margin-top: 1.2em;
+      margin-bottom: 1.2em;
+    }
+    :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      color: accent;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+    :where(strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      color: var(--tw-prose-bold);
+      font-weight: 600;
+    }
+    :where(a strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      color: accent;
+    }
+    :where(blockquote strong):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      color: inherit;
+    }
+    :where(thead th strong):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      color: inherit;
+    }
+    :where(ol):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      list-style-type: decimal;
+      margin-top: 1.25em;
+      margin-bottom: 1.25em;
+      padding-inline-start: 1.625em;
+    }
+    :where(ol[type="A"]):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      list-style-type: upper-alpha;
+    }
+    :where(ol[type="a"]):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      list-style-type: lower-alpha;
+    }
+    :where(ol[type="A" s]):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      list-style-type: upper-alpha;
+    }
+    :where(ol[type="a" s]):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      list-style-type: lower-alpha;
+    }
+    :where(ol[type="I"]):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      list-style-type: upper-roman;
+    }
+    :where(ol[type="i"]):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      list-style-type: lower-roman;
+    }
+    :where(ol[type="I" s]):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      list-style-type: upper-roman;
+    }
+    :where(ol[type="i" s]):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      list-style-type: lower-roman;
+    }
+    :where(ol[type="1"]):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      list-style-type: decimal;
+    }
+    :where(ul):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      list-style-type: disc;
+      margin-top: 1.25em;
+      margin-bottom: 1.25em;
+      padding-inline-start: 1.625em;
+    }
+    :where(ol > li):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      )::marker {
+      font-weight: 400;
+      color: var(--tw-prose-counters);
+    }
+    :where(ul > li):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      )::marker {
+      color: var(--tw-prose-bullets);
+    }
+    :where(dt):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      color: var(--tw-prose-headings);
+      font-weight: 600;
+      margin-top: 1.25em;
+    }
+    :where(hr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      border-color: var(--tw-prose-hr);
+      border-top-width: 1;
+      margin-top: 3em;
+      margin-bottom: 3em;
+    }
+    :where(blockquote):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      font-weight: 500;
+      font-style: italic;
+      color: var(--tw-prose-quotes);
+      border-inline-start-width: 0.25rem;
+      border-inline-start-color: var(--tw-prose-quote-borders);
+      quotes: "\201C""\201D""\2018""\2019";
+      margin-top: 1.6em;
+      margin-bottom: 1.6em;
+      padding-inline-start: 1em;
+    }
+    :where(blockquote p:first-of-type):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      )::before {
+      content: open-quote;
+    }
+    :where(blockquote p:last-of-type):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      )::after {
+      content: close-quote;
+    }
+    :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      color: accent;
+      font-weight: 800;
+      font-size: 2.25em;
+      margin-top: 0;
+      margin-bottom: 0.8888889em;
+      line-height: 1.1111111;
+    }
+    :where(h1 strong):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      font-weight: 900;
+      color: accent;
+    }
+    :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      color: accent;
+      font-weight: 700;
+      font-size: 1.5em;
+      margin-top: 2em;
+      margin-bottom: 1em;
+      line-height: 1.3333333;
+    }
+    :where(h2 strong):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      font-weight: 800;
+      color: accent;
+    }
+    :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      color: accent;
+      font-weight: 600;
+      font-size: 1.25em;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      line-height: 1.6;
+    }
+    :where(h3 strong):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      font-weight: 700;
+      color: accent;
+    }
+    :where(h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      color: accent;
+      font-weight: 600;
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+      line-height: 1.5;
+    }
+    :where(h4 strong):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      font-weight: 700;
+      color: accent;
+    }
+    :where(img):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
+    :where(picture):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      display: block;
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
+    :where(video):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
+    :where(kbd):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      font-weight: 500;
+      font-family: inherit;
+      color: var(--tw-prose-kbd);
+      box-shadow: 0 0 0 1px rgb(var(--tw-prose-kbd-shadows) / 10%),
+        0 3px 0 rgb(var(--tw-prose-kbd-shadows) / 10%);
+      font-size: 0.875em;
+      border-radius: 0.3125rem;
+      padding-top: 0.1875em;
+      padding-inline-end: 0.375em;
+      padding-bottom: 0.1875em;
+      padding-inline-start: 0.375em;
+    }
+    :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      color: var(--tw-prose-code);
+      font-weight: 600;
+      font-size: 0.875em;
+    }
+    :where(code):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      )::before {
+      content: "`";
+    }
+    :where(code):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      )::after {
+      content: "`";
+    }
+    :where(a code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      color: accent;
+    }
+    :where(h1 code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      color: accent;
+    }
+    :where(h2 code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      color: accent;
+      font-size: 0.875em;
+    }
+    :where(h3 code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      color: accent;
+      font-size: 0.9em;
+    }
+    :where(h4 code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      color: accent;
+    }
+    :where(blockquote code):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      color: inherit;
+    }
+    :where(thead th code):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      color: inherit;
+    }
+    :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      color: var(--tw-prose-pre-code);
+      background-color: var(--tw-prose-pre-bg);
+      overflow-x: auto;
+      font-weight: 400;
+      font-size: 0.875em;
+      line-height: 1.7142857;
+      margin-top: 1.7142857em;
+      margin-bottom: 1.7142857em;
+      border-radius: 0.375rem;
+      padding-top: 0.8571429em;
+      padding-inline-end: 1.1428571em;
+      padding-bottom: 0.8571429em;
+      padding-inline-start: 1.1428571em;
+    }
+    :where(pre code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      background-color: transparent;
+      border-width: 0;
+      border-radius: 0;
+      padding: 0;
+      font-weight: inherit;
+      color: inherit;
+      font-size: inherit;
+      font-family: inherit;
+      line-height: inherit;
+    }
+    :where(pre code):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      )::before {
+      content: none;
+    }
+    :where(pre code):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      )::after {
+      content: none;
+    }
+    :where(table):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      width: 100%;
+      table-layout: auto;
+      margin-top: 2em;
+      margin-bottom: 2em;
+      font-size: 0.875em;
+      line-height: 1.7142857;
+    }
+    :where(thead):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      border-bottom-width: 1px;
+      border-bottom-color: var(--tw-prose-th-borders);
+    }
+    :where(thead th):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      color: var(--tw-prose-headings);
+      font-weight: 600;
+      vertical-align: bottom;
+      padding-inline-end: 0.5714286em;
+      padding-bottom: 0.5714286em;
+      padding-inline-start: 0.5714286em;
+    }
+    :where(tbody tr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      border-bottom-width: 1px;
+      border-bottom-color: var(--tw-prose-td-borders);
+    }
+    :where(tbody tr:last-child):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      border-bottom-width: 0;
+    }
+    :where(tbody td):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      vertical-align: baseline;
+    }
+    :where(tfoot):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      border-top-width: 1px;
+      border-top-color: var(--tw-prose-th-borders);
+    }
+    :where(tfoot td):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      vertical-align: top;
+    }
+    :where(th, td):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      text-align: start;
+    }
+    :where(figure > *):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    :where(figcaption):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      color: var(--tw-prose-captions);
+      font-size: 0.875em;
+      line-height: 1.4285714;
+      margin-top: 0.8571429em;
+    }
+    --tw-prose-body: oklch(37.3% 0.034 259.733);
+    --tw-prose-headings: oklch(21% 0.034 264.665);
+    --tw-prose-lead: oklch(44.6% 0.03 256.802);
+    --tw-prose-links: oklch(21% 0.034 264.665);
+    --tw-prose-bold: oklch(21% 0.034 264.665);
+    --tw-prose-counters: oklch(55.1% 0.027 264.364);
+    --tw-prose-bullets: oklch(87.2% 0.01 258.338);
+    --tw-prose-hr: oklch(92.8% 0.006 264.531);
+    --tw-prose-quotes: oklch(21% 0.034 264.665);
+    --tw-prose-quote-borders: oklch(92.8% 0.006 264.531);
+    --tw-prose-captions: oklch(55.1% 0.027 264.364);
+    --tw-prose-kbd: oklch(21% 0.034 264.665);
+    --tw-prose-kbd-shadows: NaN NaN NaN;
+    --tw-prose-code: oklch(21% 0.034 264.665);
+    --tw-prose-pre-code: oklch(92.8% 0.006 264.531);
+    --tw-prose-pre-bg: oklch(27.8% 0.033 256.848);
+    --tw-prose-th-borders: oklch(87.2% 0.01 258.338);
+    --tw-prose-td-borders: oklch(92.8% 0.006 264.531);
+    --tw-prose-invert-body: oklch(87.2% 0.01 258.338);
+    --tw-prose-invert-headings: #fff;
+    --tw-prose-invert-lead: oklch(70.7% 0.022 261.325);
+    --tw-prose-invert-links: #fff;
+    --tw-prose-invert-bold: #fff;
+    --tw-prose-invert-counters: oklch(70.7% 0.022 261.325);
+    --tw-prose-invert-bullets: oklch(44.6% 0.03 256.802);
+    --tw-prose-invert-hr: oklch(37.3% 0.034 259.733);
+    --tw-prose-invert-quotes: oklch(96.7% 0.003 264.542);
+    --tw-prose-invert-quote-borders: oklch(37.3% 0.034 259.733);
+    --tw-prose-invert-captions: oklch(70.7% 0.022 261.325);
+    --tw-prose-invert-kbd: #fff;
+    --tw-prose-invert-kbd-shadows: 255 255 255;
+    --tw-prose-invert-code: #fff;
+    --tw-prose-invert-pre-code: oklch(87.2% 0.01 258.338);
+    --tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
+    --tw-prose-invert-th-borders: oklch(44.6% 0.03 256.802);
+    --tw-prose-invert-td-borders: oklch(37.3% 0.034 259.733);
+    font-size: 1rem;
+    line-height: 1.75;
+    :where(picture > img):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    :where(li):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+    :where(ol > li):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      padding-inline-start: 0.375em;
+    }
+    :where(ul > li):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      padding-inline-start: 0.375em;
+    }
+    :where(.prose > ul > li p):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      margin-top: 0.75em;
+      margin-bottom: 0.75em;
+    }
+    :where(.prose > ul > li > p:first-child):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      margin-top: 1.25em;
+    }
+    :where(.prose > ul > li > p:last-child):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      margin-bottom: 1.25em;
+    }
+    :where(.prose > ol > li > p:first-child):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      margin-top: 1.25em;
+    }
+    :where(.prose > ol > li > p:last-child):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      margin-bottom: 1.25em;
+    }
+    :where(ul ul, ul ol, ol ul, ol ol):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      margin-top: 0.75em;
+      margin-bottom: 0.75em;
+    }
+    :where(dl):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      margin-top: 1.25em;
+      margin-bottom: 1.25em;
+    }
+    :where(dd):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      margin-top: 0.5em;
+      padding-inline-start: 1.625em;
+    }
+    :where(hr + *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      margin-top: 0;
+    }
+    :where(h2 + *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      margin-top: 0;
+    }
+    :where(h3 + *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      margin-top: 0;
+    }
+    :where(h4 + *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      margin-top: 0;
+    }
+    :where(thead th:first-child):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      padding-inline-start: 0;
+    }
+    :where(thead th:last-child):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      padding-inline-end: 0;
+    }
+    :where(tbody td, tfoot td):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      padding-top: 0.5714286em;
+      padding-inline-end: 0.5714286em;
+      padding-bottom: 0.5714286em;
+      padding-inline-start: 0.5714286em;
+    }
+    :where(tbody td:first-child, tfoot td:first-child):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      padding-inline-start: 0;
+    }
+    :where(tbody td:last-child, tfoot td:last-child):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      padding-inline-end: 0;
+    }
+    :where(figure):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
+    :where(.prose > :first-child):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      margin-top: 0;
+    }
+    :where(.prose > :last-child):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      margin-bottom: 0;
+    }
+  }
+  .mt-1 {
+    margin-top: calc(var(--spacing) * 1);
+  }
+  .mt-2 {
+    margin-top: calc(var(--spacing) * 2);
+  }
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
+  }
+  .mt-8 {
+    margin-top: calc(var(--spacing) * 8);
+  }
+  .mt-\[3\%\] {
+    margin-top: 3%;
+  }
+  .mt-\[5\%\] {
+    margin-top: 5%;
+  }
+  .mt-\[10\%\] {
+    margin-top: 10%;
+  }
+  .mt-\[15\%\] {
+    margin-top: 15%;
+  }
+  .mt-\[20\%\] {
+    margin-top: 20%;
+  }
+  .mt-\[25\%\] {
+    margin-top: 25%;
+  }
+  .mb-3 {
+    margin-bottom: calc(var(--spacing) * 3);
+  }
+  .mb-6 {
+    margin-bottom: calc(var(--spacing) * 6);
+  }
+  .icon-\[akar-icons--python-fill\] {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none'%3E%3Cg fill='black' clip-path='url(%23akarIconsPythonFill0)'%3E%3Cpath d='M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.007 2.752h5.814v.826H3.9S0 5.789 0 11.969s3.403 5.96 3.403 5.96h2.03v-2.867s-.109-3.42 3.35-3.42h5.766s3.24.052 3.24-3.148V3.202S18.28 0 11.913 0M8.708 1.85c.578 0 1.046.47 1.046 1.052c0 .581-.468 1.051-1.046 1.051s-1.046-.47-1.046-1.051c0-.582.467-1.052 1.046-1.052'/%3E%3Cpath d='M12.087 24c6.092 0 5.712-2.656 5.712-2.656l-.007-2.752h-5.814v-.826h8.123s3.9.445 3.9-5.735s-3.404-5.96-3.404-5.96h-2.03v2.867s.109 3.42-3.35 3.42H9.452s-3.24-.052-3.24 3.148v5.292S5.72 24 12.087 24m3.206-1.85c-.579 0-1.046-.47-1.046-1.052c0-.581.467-1.051 1.046-1.051c.578 0 1.046.47 1.046 1.051c0 .582-.468 1.052-1.046 1.052'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='akarIconsPythonFill0'%3E%3Cpath fill='%23fff' d='M0 0h24v24H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/g%3E%3C/svg%3E");
+  }
+  .icon-\[akar-icons--react-fill\] {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none'%3E%3Cg fill='black' clip-path='url(%23akarIconsReactFill0)'%3E%3Cpath d='M24 11.689c0-1.59-1.991-3.097-5.044-4.031c.705-3.111.392-5.587-.988-6.38a2.15 2.15 0 0 0-1.096-.273v1.09c.225 0 .406.045.558.128c.665.382.954 1.834.729 3.703c-.054.46-.142.944-.25 1.438a24 24 0 0 0-3.106-.533a24 24 0 0 0-2.035-2.446c1.595-1.482 3.092-2.294 4.11-2.294V1c-1.346 0-3.107.959-4.888 2.622C10.21 1.97 8.448 1.02 7.103 1.02v1.09c1.013 0 2.515.808 4.11 2.28c-.685.72-1.37 1.536-2.021 2.441a23 23 0 0 0-3.111.538q-.168-.734-.255-1.418c-.23-1.87.054-3.322.715-3.708c.146-.088.337-.128.562-.128v-1.09c-.41 0-.783.088-1.105.273c-1.375.793-1.683 3.263-.974 6.365C1.981 8.603 0 10.104 0 11.689c0 1.59 1.991 3.097 5.044 4.03c-.705 3.112-.392 5.588.988 6.38c.318.186.69.274 1.1.274c1.346 0 3.107-.959 4.888-2.622c1.78 1.653 3.541 2.602 4.887 2.602a2.2 2.2 0 0 0 1.105-.274c1.375-.792 1.683-3.262.974-6.364C22.019 14.781 24 13.274 24 11.689m-6.37-3.263a22 22 0 0 1-.66 1.932a26 26 0 0 0-1.345-2.319q1.044.153 2.006.387m-2.24 5.21a26 26 0 0 1-1.179 1.869a25.5 25.5 0 0 1-4.412.005a25.5 25.5 0 0 1-2.201-3.806a26 26 0 0 1 2.192-3.82a25.5 25.5 0 0 1 4.411-.006q.61.875 1.184 1.86q.557.961 1.018 1.946a27 27 0 0 1-1.013 1.952M16.97 13c.264.656.49 1.311.675 1.947c-.64.157-1.316.289-2.015.391A27 27 0 0 0 16.97 13m-4.96 5.22q-.684-.706-1.36-1.566c.44.02.89.035 1.345.035q.691.001 1.36-.035c-.44.573-.895 1.096-1.345 1.566m-3.64-2.882a22 22 0 0 1-2.006-.386c.181-.631.406-1.282.66-1.932c.201.39.412.782.642 1.174q.345.587.704 1.144m3.615-10.18q.684.706 1.36 1.566c-.44-.02-.89-.035-1.345-.035q-.691-.001-1.36.035c.44-.573.895-1.096 1.345-1.566M8.365 8.04a27 27 0 0 0-1.34 2.333a21 21 0 0 1-.675-1.947c.64-.152 1.316-.284 2.015-.386m-4.427 6.124c-1.732-.738-2.852-1.707-2.852-2.475s1.12-1.742 2.852-2.475c.42-.181.88-.343 1.355-.494c.279.958.646 1.956 1.1 2.979a23 23 0 0 0-1.085 2.964a15 15 0 0 1-1.37-.499m2.632 6.99c-.665-.38-.954-1.834-.729-3.702c.054-.46.142-.945.25-1.439c.958.235 2.005.416 3.106.534a24 24 0 0 0 2.035 2.446c-1.595 1.482-3.092 2.294-4.11 2.294a1.2 1.2 0 0 1-.552-.132m11.604-3.727c.23 1.869-.054 3.322-.715 3.708c-.146.088-.337.127-.562.127c-1.013 0-2.515-.807-4.11-2.28a23 23 0 0 0 2.021-2.44a23 23 0 0 0 3.111-.538q.171.74.255 1.423m1.883-3.263c-.42.181-.88.343-1.355.494a23.5 23.5 0 0 0-1.1-2.979c.45-1.017.811-2.01 1.085-2.964q.728.227 1.375.499c1.732.738 2.852 1.707 2.852 2.475c-.005.768-1.125 1.742-2.857 2.475'/%3E%3Cpath d='M11.995 13.925a2.236 2.236 0 1 0 0-4.472a2.236 2.236 0 0 0 0 4.472'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='akarIconsReactFill0'%3E%3Cpath fill='%23fff' d='M0 0h24v24H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/g%3E%3C/svg%3E");
+  }
+  .icon-\[ant-design--docker-outlined\] {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 1024' width='1024' height='1024'%3E%3Cpath fill='black' fill-rule='evenodd' d='M555.877 488.236h-92.612v-82.784h92.612zm0-286.236h-92.612v85.59h92.612zm109.45 203.452h-92.612v82.784h92.612zm-218.9-101.024h-92.612v84.187h92.612zm109.45 0h-92.612v84.187h92.612zm388.688 140.311c-19.645-14.03-67.354-18.24-102.434-11.225c-4.21-33.674-23.855-63.14-57.532-89.8l-19.645-12.627l-12.628 19.644c-25.258 39.287-32.274 103.83-5.613 145.924c-12.63 7.015-36.484 15.434-67.354 15.434H67.56c-12.629 71.56 8.42 164.165 61.741 227.305C181.221 801.131 259.8 832 360.832 832c220.302 0 384.478-101.024 460.25-286.236c29.468 0 95.419 0 127.692-63.14c1.404-2.807 9.823-18.24 11.226-23.853zm-717.038-39.287h-92.612v82.784h92.612zm109.45 0h-92.612v82.784h92.612zm109.45 0h-92.612v82.784h92.612zm-109.45-101.024h-92.612v84.187h92.612z'/%3E%3C/svg%3E");
+  }
+  .icon-\[bi--git\] {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16'%3E%3Cpath fill='black' d='M15.698 7.287L8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45l1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025a1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.03 1.03 0 0 0 0-1.457'/%3E%3C/svg%3E");
+  }
+  .icon-\[cib--nginx\] {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'%3E%3Cpath fill='black' d='M16 0L2.14 8v16L16 32l13.86-8V8zm8 22.12c0 .943-.86 1.719-2.036 1.719c-.844 0-1.803-.339-2.401-1.079l-8-9.52v8.88c0 .959-.76 1.719-1.703 1.719h-.1a1.73 1.73 0 0 1-1.719-1.719V9.88c0-.943.839-1.719 2-1.719c.86 0 1.839.339 2.437 1.079l7.959 9.52V9.88c0-.963.803-1.719 1.724-1.719h.099a1.73 1.73 0 0 1 1.719 1.719v12.24z'/%3E%3C/svg%3E");
+  }
+  .icon-\[cib--postgresql\] {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'%3E%3Cpath fill='black' d='M22.839 0a13.6 13.6 0 0 0-3.677.536l-.083.027a15 15 0 0 0-2.276-.219c-1.573-.027-2.923.353-4.011.989C11.719.964 9.495.317 7.151.448c-1.629.088-3.411.583-4.735 1.979C1.104 3.818.407 5.974.552 8.912c.041.807.271 2.124.656 3.837c.38 1.709.917 3.709 1.589 5.537c.672 1.823 1.405 3.463 2.552 4.577c.572.557 1.364 1.032 2.296.991c.652-.027 1.24-.313 1.751-.735c.249.328.516.468.755.599c.308.167.599.281.907.355c.552.14 1.495.323 2.599.135a5 5 0 0 0 1.167-.359l.047 1.307c.057 1.38.095 2.656.505 3.776c.068.183.251 1.12.969 1.953c.724.833 2.129 1.349 3.739 1.005c1.131-.24 2.573-.677 3.532-2.041c.948-1.344 1.375-3.276 1.459-6.412c.02-.172.047-.312.072-.448l.224.021h.027c1.208.052 2.521-.12 3.62-.631c.968-.448 1.703-.901 2.239-1.708c.131-.199.281-.443.319-.86c.041-.411-.199-1.063-.595-1.364c-.791-.604-1.291-.375-1.828-.26a8.7 8.7 0 0 1-1.599.192c1.541-2.593 2.645-5.353 3.276-7.792c.375-1.443.584-2.771.599-3.932c.021-1.161-.077-2.187-.771-3.077C28.481.802 25.423.03 23.059.005h-.219zm-.063.855c2.235-.021 5.093.604 7.145 3.228c.464.589.6 1.448.584 2.511s-.213 2.328-.573 3.719c-.692 2.699-2.011 5.833-3.859 8.652a1 1 0 0 0 .208.115c.385.161 1.265.296 3.025-.063c.443-.095.767-.156 1.105.099a.69.69 0 0 1 .244.568a.9.9 0 0 1-.177.448c-.339.509-1.009.995-1.869 1.396c-.76.353-1.855.536-2.817.547c-.489.005-.937-.032-1.319-.152l-.02-.004c-.147 1.411-.484 4.203-.704 5.473c-.176 1.025-.484 1.844-1.072 2.453c-.589.615-1.417.979-2.537 1.219c-1.385.297-2.391-.021-3.041-.568s-.948-1.276-1.125-1.719c-.124-.307-.187-.703-.249-1.235a27 27 0 0 1-.136-1.911q-.063-1.679-.041-3.365a4.1 4.1 0 0 1-2.068 1.016c-.921.156-1.739 0-2.228-.12a3 3 0 0 1-.693-.271c-.229-.12-.443-.255-.588-.527a.75.75 0 0 1-.073-.509a.8.8 0 0 1 .287-.443c.265-.215.615-.333 1.14-.443c.959-.199 1.297-.333 1.5-.496c.172-.135.371-.416.713-.828c0-.015 0-.036-.005-.052a3.96 3.96 0 0 1-1.771-.479c-.197.208-1.224 1.292-2.468 2.792c-.521.624-1.099.984-1.713 1.011c-.609.025-1.163-.281-1.631-.735c-.937-.912-1.688-2.48-2.339-4.251s-1.177-3.744-1.557-5.421c-.375-1.683-.599-3.037-.631-3.688c-.14-2.776.511-4.645 1.625-5.828s2.641-1.625 4.131-1.713c2.672-.151 5.213.781 5.724.979c.989-.672 2.265-1.088 3.859-1.063a10 10 0 0 1 2.24.292l.027-.016a9 9 0 0 1 .984-.28a13 13 0 0 1 2.76-.339zm.203.89h-.197c-.76.009-1.527.099-2.271.26c1.661.735 2.916 1.864 3.801 3c.615.781 1.12 1.64 1.505 2.557q.227.534.303.88c.031.115.047.213.057.312c0 .052.005.105-.021.193c0 .005-.005.016-.005.021c.043 1.167-.249 1.957-.287 3.072c-.025.808.183 1.756.235 2.792c.047.973-.072 2.041-.703 3.093c.052.063.099.125.151.193c1.672-2.636 2.88-5.547 3.521-8.032c.344-1.339.525-2.552.541-3.509c.016-.959-.161-1.657-.391-1.948c-1.792-2.287-4.213-2.871-6.24-2.885zm-6.391.343c-1.572.005-2.703.48-3.561 1.193c-.887.74-1.48 1.745-1.865 2.781c-.464 1.224-.625 2.411-.688 3.219l.021-.011a6.8 6.8 0 0 1 1.771-.687c.667-.157 1.391-.204 2.041.052c.657.249 1.193.848 1.391 1.749c.939 4.344-.291 5.959-.744 7.177c-.172.443-.323.891-.443 1.349c.057-.011.115-.027.172-.032c.323-.025.572.079.719.141c.459.192.771.588.943 1.041a2 2 0 0 1 .093.38a.6.6 0 0 1 .027.167a72 72 0 0 0 .015 4.984c.032.719.079 1.349.136 1.849c.057.495.135.875.188 1.005c.171.427.421.984.875 1.364c.448.381 1.093.631 2.276.381c1.025-.224 1.656-.527 2.077-.964c.423-.443.672-1.052.833-1.984c.245-1.401.729-5.464.787-6.224c-.025-.579.057-1.021.245-1.36c.187-.344.479-.557.735-.672c.124-.057.244-.093.343-.125a14 14 0 0 0-.323-.432a6 6 0 0 1-.891-1.463a7 7 0 0 0-.344-.647c-.176-.317-.4-.719-.635-1.172c-.469-.896-.979-1.989-1.245-3.052c-.265-1.063-.301-2.161.376-2.932c.599-.688 1.656-.973 3.233-.812c-.047-.141-.072-.261-.151-.443a10.5 10.5 0 0 0-1.391-2.355c-1.339-1.713-3.511-3.412-6.859-3.469zm-8.853.068a8 8 0 0 0-.505.016c-1.349.079-2.62.468-3.532 1.432c-.911.969-1.509 2.547-1.38 5.167c.027.5.24 1.885.609 3.536c.371 1.652.896 3.595 1.527 5.313c.629 1.713 1.391 3.208 2.12 3.916c.364.349.681.495.968.485c.287-.016.636-.183 1.063-.693a57 57 0 0 1 2.412-2.729a4.67 4.67 0 0 1-1.552-4.203c.135-.984.156-1.907.135-2.636c-.015-.708-.063-1.176-.063-1.473v-.032l-.005-.009c0-1.537.272-3.057.792-4.5c.375-.996.928-2 1.76-2.819c-.817-.271-2.271-.676-3.843-.755a8 8 0 0 0-.505-.016zm16.53 7.041c-.905.016-1.411.251-1.681.552c-.376.433-.412 1.193-.177 2.131c.233.937.719 1.984 1.172 2.855c.224.437.443.828.619 1.145c.183.323.313.547.391.745c.073.177.157.333.24.479c.349-.74.412-1.464.375-2.224c-.047-.937-.265-1.896-.229-2.864c.037-1.136.261-1.876.277-2.751a8 8 0 0 0-.985-.068zm-10.978.158c-.276 0-.552.036-.823.099a6 6 0 0 0-1.537.599a3.3 3.3 0 0 0-.463.303l-.032.025c.011.199.047.667.063 1.365c.016.76 0 1.728-.145 2.776c-.323 2.281 1.333 4.167 3.276 4.172c.115-.469.301-.944.489-1.443c.541-1.459 1.604-2.521.708-6.677c-.145-.677-.437-.953-.839-1.109a1.9 1.9 0 0 0-.697-.109zm10.557.27h.068c.083.005.167.011.239.031a.5.5 0 0 1 .183.073a.21.21 0 0 1 .099.145v.011a.4.4 0 0 1-.047.183a1 1 0 0 1-.145.197a.88.88 0 0 1-.516.281a.78.78 0 0 1-.547-.135a1 1 0 0 1-.172-.157a.3.3 0 0 1-.084-.172a.24.24 0 0 1 .052-.171a.7.7 0 0 1 .157-.12c.129-.073.301-.125.5-.152q.11-.013.213-.02zm-10.428.224c.068 0 .147.005.22.015c.208.032.385.084.525.167a.5.5 0 0 1 .177.141a.32.32 0 0 1 .073.224a.44.44 0 0 1-.1.208a1 1 0 0 1-.192.172a.84.84 0 0 1-.599.151a.96.96 0 0 1-.557-.301a1 1 0 0 1-.157-.219a.36.36 0 0 1-.057-.24c.021-.14.141-.219.256-.26c.131-.043.271-.057.411-.052zm12.079 9.791h-.005c-.192.073-.353.1-.489.163a.6.6 0 0 0-.317.285c-.089.152-.156.423-.136.885a.6.6 0 0 0 .199.095c.224.068.609.115 1.036.109c.849-.011 1.896-.208 2.453-.469a5.3 5.3 0 0 0 1.255-.817c-1.859.38-2.905.281-3.552.016a2 2 0 0 1-.443-.267zm-10.708.125h-.027c-.072.005-.172.032-.375.251c-.464.52-.625.848-1.005 1.151c-.385.307-.88.469-1.875.672a2.6 2.6 0 0 0-.615.192c.036.032.036.043.093.068c.147.084.333.152.485.193c.427.104 1.124.229 1.859.104c.729-.125 1.489-.475 2.141-1.385c.115-.156.124-.391.031-.641c-.093-.244-.297-.463-.437-.52a1 1 0 0 0-.276-.084z'/%3E%3C/svg%3E");
+  }
+  .icon-\[devicon-plain--django\] {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128' width='128' height='128'%3E%3Cg fill='black'%3E%3Cpath d='M59.448 0h20.93v96.88c-10.737 2.04-18.62 2.855-27.181 2.855c-25.551-.001-38.87-11.551-38.87-33.705c0-21.338 14.135-35.2 36.015-35.2c3.398 0 5.98.272 9.106 1.087zm0 48.765c-2.446-.815-4.485-1.086-7.067-1.086c-10.6 0-16.717 6.523-16.717 17.939c0 11.145 5.845 17.26 16.582 17.26c2.309 0 4.212-.136 7.202-.542z'/%3E%3Cpath d='M113.672 32.321V80.84c0 16.717-1.224 24.735-4.893 31.666c-3.398 6.661-7.883 10.873-17.124 15.494l-19.435-9.241c9.242-4.35 13.726-8.153 16.58-14c2.99-5.979 3.943-12.91 3.943-31.122V32.321zM92.742.111h20.93v21.474h-20.93z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .icon-\[devicon-plain--djangorest\] {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128' width='128' height='128'%3E%3Cpath fill='black' d='M12.061 28.416a.14.14 0 0 0-.125.139v2.744q0 .22.027.56c.008.096.014.15.022.229c-.11-.125-.208-.257-.344-.361q-.33-.26-.777-.41a3.3 3.3 0 0 0-1.041-.151c-.933 0-1.703.32-2.272.953c-.573.634-.85 1.561-.85 2.762c0 1.188.27 2.105.83 2.73c.561.621 1.331.934 2.272.934q.601 0 1.055-.15h.002q.452-.158.783-.424c.153-.122.264-.267.38-.409l.126.743a.14.14 0 0 0 .137.115h.879a.14.14 0 0 0 .138-.139v-9.726a.14.14 0 0 0-.138-.14H12.06m4.129.313a.84.84 0 0 0-.565.203c-.16.14-.232.36-.232.617c0 .254.073.47.23.615c.153.135.35.205.567.205c.208 0 .4-.07.55-.203c.167-.143.245-.362.245-.617c0-.259-.078-.48-.246-.62a.82.82 0 0 0-.55-.2m21.768 2.296q-.89-.002-1.533.288c-.43.193-.765.48-.994.853c-.23.371-.342.818-.342 1.33c0 .486.121.921.369 1.295l.002.002c.203.297.472.508.775.668c-.215.144-.4.294-.527.457a1.2 1.2 0 0 0-.246.742c0 .245.077.47.226.66l.002.002q.121.145.266.252c-.384.12-.723.288-.969.547a1.7 1.7 0 0 0-.465 1.195c0 .644.288 1.168.832 1.522v.002c.545.359 1.302.527 2.264.527c1.241 0 2.203-.202 2.885-.627s1.037-1.063 1.037-1.861c0-.632-.231-1.143-.686-1.48h-.002c-.449-.338-1.08-.497-1.882-.497H37.7a3 3 0 0 1-.555-.047a.7.7 0 0 1-.308-.142c-.054-.052-.08-.113-.08-.217a.6.6 0 0 1 .133-.387a1.5 1.5 0 0 1 .423-.32c.196.028.39.047.578.047c.872 0 1.576-.208 2.092-.633c.516-.429.78-1.022.78-1.738q0-.442-.141-.813c-.062-.163-.153-.29-.238-.423l1.123-.133a.14.14 0 0 0 .123-.137v-.67a.14.14 0 0 0-.139-.139h-2.457a3 3 0 0 0-.299-.06a4 4 0 0 0-.388-.045a4 4 0 0 0-.39-.02zm-15.918.026a5.2 5.2 0 0 0-1.361.174a6.3 6.3 0 0 0-1.143.416a.14.14 0 0 0-.066.177l.334.79a.14.14 0 0 0 .187.07q.45-.21.953-.362q.492-.15 1.037-.15c.464 0 .802.11 1.037.32c.225.2.354.57.354 1.14v.286l-1.107.045c-1.178.034-2.067.234-2.67.623c-.603.388-.918.97-.918 1.691c0 .474.102.878.312 1.202v.002c.212.317.502.557.861.713h.002q.543.23 1.223.23q.637.001 1.09-.13h.002q.455-.14.805-.405l.002-.002a4 4 0 0 0 .503-.504l.168.805a.14.14 0 0 0 .135.111h.795a.14.14 0 0 0 .139-.139v-4.658c0-.828-.216-1.461-.67-1.861c-.452-.398-1.126-.584-2.004-.584m8.375.115a3.4 3.4 0 0 0-.965.137a2.8 2.8 0 0 0-.836.394c-.181.125-.333.28-.469.45l-.123-.739a.14.14 0 0 0-.136-.117h-.881a.14.14 0 0 0-.139.139v6.851a.14.14 0 0 0 .139.139h1.092a.14.14 0 0 0 .138-.139v-3.588c0-.798.159-1.39.457-1.785c.291-.385.799-.59 1.57-.59c.542 0 .917.135 1.155.383h.002c.243.25.373.637.373 1.186v4.394a.14.14 0 0 0 .14.139h1.077a.14.14 0 0 0 .138-.139v-4.463c0-.902-.225-1.585-.7-2.015c-.472-.43-1.157-.637-2.032-.637m15.529.014c-.706 0-1.325.143-1.848.435a2.9 2.9 0 0 0-1.199 1.266c-.28.549-.416 1.208-.416 1.974q-.001.865.244 1.555q.252.687.707 1.168q.461.478 1.086.733h.002q.63.248 1.377.248q.797 0 1.438-.248a3 3 0 0 0 1.1-.733q.456-.481.694-1.17t.237-1.552q.002-1.147-.43-1.971a3 3 0 0 0-1.203-1.27q-.773-.436-1.79-.435m-30.326.111a.14.14 0 0 0-.125.139v7.959c0 .396-.09.636-.229.756c-.155.134-.357.205-.63.205q-.255 0-.45-.036l-.004-.001a3 3 0 0 1-.392-.088a.14.14 0 0 0-.18.132v.844a.14.14 0 0 0 .094.131q.196.067.453.111q.266.053.61.053c.462 0 .854-.08 1.17-.254c.312-.171.55-.425.702-.75v-.002q.225-.477.223-1.127V31.43a.14.14 0 0 0-.139-.139h-1.103m22.3.781c.499 0 .852.12 1.087.348l.002.002c.233.222.357.56.357 1.049c0 .454-.12.774-.351.994c-.23.218-.582.336-1.08.336c-.481 0-.829-.117-1.069-.338s-.363-.533-.363-.973c0-.484.124-.827.36-1.058c.24-.237.583-.36 1.058-.36m-27.944.235c.774 0 1.267.217 1.539.636c.285.434.437 1.077.437 1.932v.187c0 .803-.158 1.39-.45 1.772c-.287.374-.78.57-1.526.57c-.643 0-1.092-.207-1.398-.629c-.305-.425-.467-1.045-.467-1.869c0-.828.165-1.465.476-1.922v-.002c.309-.456.753-.675 1.389-.675m35.943.025c.488 0 .873.103 1.164.3c.295.201.513.482.658.86v.002q.22.563.22 1.361q-.002.807-.222 1.383c-.144.382-.362.669-.662.873h-.002c-.292.202-.67.307-1.148.307c-.483 0-.865-.105-1.156-.307c-.296-.204-.514-.49-.659-.873q-.219-.576-.22-1.383c0-.813.168-1.433.49-1.873l.002-.001c.322-.433.816-.649 1.535-.649m-22.557 2.59v.486c0 .647-.188 1.104-.56 1.412c-.38.315-.868.475-1.483.475c-.39 0-.688-.087-.908-.252c-.213-.16-.319-.396-.319-.758c0-.412.155-.705.49-.93c.327-.218.941-.361 1.827-.394zm13.988 3.226h1.248q.542 0 .904.073h.004c.234.042.394.124.5.234c.1.109.16.277.16.53a.93.93 0 0 1-.258.667l-.001.004c-.17.19-.44.344-.817.451v.002q-.558.168-1.44.168c-.593 0-1.037-.097-1.333-.273v-.002c-.295-.172-.424-.393-.424-.723q.001-.384.166-.623c.115-.163.274-.285.494-.373q.33-.133.797-.135m27 3.471v4.291H61.55v-.348H40.186v.348H21.823a23.6 23.6 0 0 0-3.773-.377H6.25v5.412h.029v12.707h-.03v1.284H.5v.416h5.75v3.351h.03v15.855h6.127v-.42h13.127v8.54h.418v-8.54h2.435c.807.937 1.863 1.998 3.26 2.88l.203.126l4.862-2.562l3.894-.024H61.55v-.42h2.799v3.045h.416v-3.045h6.594c2.328.509 4.75.71 6.394.647c1.18 0 2.982-.153 4.907-.647h1.482v.069h.11l.099.097l.098-.097h.109v-.069h18.674v4.154h.418v-4.154h2.103v.42h6.127v-.42h10.617a.07.07 0 0 0 .07-.07V65.35h4.934v-.416h-4.933V50.89h.322v-5.303h-11.01v-.023h-6.127v.023H84.586c-1.176-.284-2.358-.466-3.52-.476q-.149-.001-.296.002c-1.267.02-3.744.028-6.221.796h-9.785v-4.29zm-41.875 4.43h3.06v1.01c-.94-.438-1.97-.767-3.06-1.01m3.478 0h14.234v4.484L34.17 56.54h-1.86v-1.55h-.138v3.238h.138v-1.55h1.721l-2.935 2.932c.16-.694.254-1.428.254-2.21v-.764c0-3.888-1.481-6.675-3.899-8.453a11 11 0 0 0-1.5-.906zm35.6 0h2.797v5.463a1.4 1.4 0 0 0-.843 2.324l-6.579 3.738l-6.884-6.662h11.51zm3.213 0h9.346c-.338.118-.677.248-1.01.398c-2.907 1.316-5.463 4.042-5.463 9.246c0 1.878.539 3.537 1.412 4.996l-.76.735h-3.525v-7.152c.288-.043.568-.154.79-.375a1.41 1.41 0 0 0 0-1.993a1.4 1.4 0 0 0-.79-.392zm13.77 0h3.97c.466.058.94.154 1.413.256l-3.398 3.287c-1.283-.05-3.006.131-4.524.931c-1.642.866-2.996 2.51-2.996 5.17v.014l.002.012c.02.33.083.66.166.986l-3.523 3.41a8.8 8.8 0 0 1-1.174-4.422c0-4.939 2.282-7.27 4.975-8.488c1.71-.774 3.552-1.042 5.09-1.156zm5.547.287l.06.012v3.861c-1.149-.293-2.314-.542-3.296-.613c-.04-.003-.09 0-.131-.002zm-76.898.031h10.85c2.866.065 5.444.587 7.502 1.631v7.133c-.453-1.96-1.754-3.222-3.154-3.947c-1.733-.898-3.577-1.073-4.338-1.073h-6.469v.656zm33.836.028h3.313L41.019 49.7zm3.51 0h.107V64.56l-.66.375H41.02v-2.678h.002V50.08h-.002v-.182zm.525 0h.121l3.81 3.685H45.48v12.178h3.207l-3.633 2.065zm.319 0h15.346v3.685H49.182zm61.215.002h4.459v.023h10.914l-3.631 3.639h-7.283v7.298l-4.46 4.47v-11.77h-2.937V46.42h2.938zm-22.03.023h.134l4.076 4.068l-.364 1.067c-.887-.352-2.33-.837-3.845-1.244zm.33 0h18.345v3.639H88.915l-.096.283l-3.93-3.922zm-77.804.045l4.49 4.5v13.52h5.057c2.126 0 4.362-.312 6.113-1.366a6 6 0 0 0 .568-.391l2.203 2.207H7.083v-.45h.032V50.112h-.032zm114.97.055v3.539h-3.531zm-96.105 1.693c.351.198.69.407 1.006.639c2.218 1.631 3.56 4.103 3.56 7.783v.763a8.6 8.6 0 0 1-.719 3.504l-3.847 3.844zm53.914 2.201a9 9 0 0 1 .918.012c.942.068 2.156.34 3.357.654v12.502a31 31 0 0 0-2.008-.873h-.002a36 36 0 0 1-2.857-1.242v-3.443a2.56 2.56 0 0 0 0-5.117v-.005h-.139v.004a2.56 2.56 0 0 0 0 5.117v3.374c-.265-.133-.53-.264-.798-.41c-1.495-.814-2.973-1.854-3.711-2.944a5.5 5.5 0 0 1-.725-1.856zm-.213.016l-5.775 5.588c-.017-.113-.038-.225-.045-.336c.004-2.38 1.114-3.663 2.55-4.42c1.03-.543 2.235-.773 3.27-.832m-39.467.3v.182h.002v10.512h-.002v3.512H27.716c.404-.336.789-.698 1.144-1.09a9.44 9.44 0 0 0 2.168-3.974l3.198-3.194h4.646v1.549h.139v-3.238h-.139v1.55h-4.508zm49.324.16h13.72v13.845L89.47 50.999l.037-.108zm14.139 0h2.103v11.772l-2.103 2.107zm8.23 0h5.62l-2.915 2.92v-1.615h1.55v-.138h-3.24v.138h1.552v1.754l-2.567 2.573zm5.817 0h4.732v14.046h-7.844V54.008zm-71.383.022h3.53l6.958 6.735l-6.646 3.777h-3.84zm-33.906.033h5.635c.62 0 2.403.175 3.955.979c1.551.804 2.886 2.158 2.886 4.71v.764c0 2.284-.803 3.71-2.05 4.653l-.887-.889a4.74 4.74 0 0 0 1.965-3.834a4.753 4.753 0 0 0-4.688-4.748v-.01l-.068.002h-.004l-.07.004l-.065.004v4.113l.076-.007l.063-.004a.645.645 0 0 1 0 1.29l-.063-.001l-.076-.008v.264l-6.61-6.623zm77.018.202l13.807 13.785v.003h-16.67a18 18 0 0 0-2.004-1.144V51.187c1.653.454 3.219.986 3.937 1.293l.414.176zm-25.076.523v2.46a1.24 1.24 0 0 1-.69-.331a1.27 1.27 0 0 1 0-1.797c.195-.194.438-.29.69-.332m.416.002c.25.042.495.136.69.33a1.27 1.27 0 0 1 0 1.797a1.24 1.24 0 0 1-.69.332zm-52.357.129l6.61 6.623v3.654l.066.002l.07.002h.002c.996 0 1.92-.306 2.684-.83l.876.879c-.131.094-.262.189-.402.273c-1.541.929-3.641 1.248-5.683 1.248h-4.223zm6.748.91a4.62 4.62 0 0 1 4.617 4.617a4.6 4.6 0 0 1-1.924 3.737l-2.693-2.7v-.254a.785.785 0 1 0 0-1.568zm59.98.334v4.84a2.42 2.42 0 0 1 0-4.84m.139 0a2.42 2.42 0 0 1 0 4.84zm-15.662.9c.211.192.47.282.736.323v7.156H60.9l-2.107-2.04zm-.354.19l-4.56 5.154l-1.668-1.615zm51.187.014v10.787h-2.566v-8.217zm-41.238 2.709a6.4 6.4 0 0 0 .715 1.632l.004.006l.004.008c.882 1.307 2.456 2.37 4.007 3.215q.61.33 1.198.611v2.606H64.86l2.767-2.678h3.577l-.559-.682a10.5 10.5 0 0 1-.936-1.334zm37.838.697v7.38h-4.459v-2.911zm-54.141.191l1.701 1.647l-1.797 2.03h-6.375zm-37.75.817l2.586 2.591a4.6 4.6 0 0 1-2.586.79zm6.379.562v5.633l-2.111-2.115c1.025-.818 1.785-1.977 2.11-3.518m33.172.365l1.998 1.934h-3.71zm10.414 1.325q.192.31.404.609h-1.033zm-39.488.455a9 9 0 0 1-1.385 2.017c-.567.626-1.23 1.163-1.931 1.649h-.356zm19.336.988h7.103L53.7 64.936h-8.648v-.454zm7.289 0h5.309l2.767 2.678H53.885zm5.51 0h2.582v2.498zm2.998 0h2.664l-2.664 2.578zm14.51.135a38 38 0 0 0 2.556 1.093a28 28 0 0 1 2.31 1.03v.42h-4.866zm26.479.466v2.077h-2.072zm-61.117 1.862v.215h-.38zm39.922.004c.138.073.279.134.416.21h-.416zm-77.475.627H25.34l-.451.45c-.578.305-1.168.583-1.766.81l-.48.181l.49.762l-2.65 2.648l-1.456-2.367l-7.459.021v11.244l-4.459 4.452V67.87h-.03zm20.074 0h13.029v1.423h.002v.313l-7.867 4.473l-5.758-5.77c.205-.135.395-.293.594-.44zm13.86 0h2.225l-2.222 1.263v-.673h-.002zm2.507 0h1.111v9.83l-3.615 4.086V66.776zm1.529 0h8.28l-.522.59h-7.332v8.287l-.426.48zm8.465 0h10.713l-.61.59H52.994zm11.445 0H79.13v1.664c-.802-.335-1.61-.662-2.315-.985l-.111-.05l-.082-.04H65.57zm14.31 0h4.868v4.463a10 10 0 0 0-1.328-.993c-1.106-.697-2.331-1.241-3.54-1.748zm5.284 0h1.121a12.7 12.7 0 0 1 2.149 1.66c1.706 1.663 2.902 3.905 2.902 7.191c0 2.085-.572 3.717-1.49 5.006l-1.885 1.889q-.826.617-1.75 1.082q-.515.256-1.047.469v-4.336c.981-.93 1.643-2.265 1.643-4.11c0-1.654-.66-2.942-1.643-3.972zm2.59 0h15.922l-8.381 8.398h-2.031v-1.549h-.139v3.239h.139v-1.551h1.892l-3.482 3.488a10 10 0 0 0 .494-3.174c0-3.492-1.313-5.995-3.152-7.787a13 13 0 0 0-1.262-1.064m16.502 0h.004l2.1 2.095V84h-2.106l.002-10.11h1.03v1.55h.14v-3.238h-.14v1.549h-1.03zm.199 0h1.904v1.9zm2.738 0h4.46v7.185l-4.46-4.451zm5.293 0h2.567v10.58l-2.567-2.563zm2.705 0h7.844V83.9l-7.844-7.83zm-49.82.002l.608.587h-.608zm-39.23.005v.084q-.096.056-.193.11zm77.697.026v8.365h-8.347zm-38.883.047v.51h-.527zm-37.906.431l5.754 5.768l-2.52 1.432l.038.06a43.7 43.7 0 0 0 4.342 6.098l-2.403.012l-5.7-8.858V66.15c.162-.096.33-.183.49-.286m-.908.53v3.332l-1.635-2.54c.554-.228 1.099-.5 1.635-.792m20.78.382h5.759l-5.76 6.51zm5.945 0h10.502l-4.004 3.875v-2.818h1.548v-.139h-3.238v.14h1.55v2.95l-8.487 8.215H46.31v-5.504zm10.7 0h1.39V84h-2.8v-5.002h-11.22l8.289-8.021v6.924h-1.551v.138h3.238v-.138h-1.549v-7.057zm1.805 0h1.469l13.047 12.623c-.529.045-1.05.073-1.537.073h-.002c-3.087.019-6.718-1.293-9.818-2.328l-.55-.184v5.883l.245.111c.946.432 2.038.773 3.166 1.047h-6.02zm1.67 0h10.01l.031.014c.832.38 1.752.75 2.662 1.135v3.695h-.005a2.562 2.562 0 1 0 2.563 2.563a2.563 2.563 0 0 0-2.419-2.557v-3.642c1.085.462 2.16.954 3.096 1.544c.686.433 1.287.909 1.771 1.454v6.603c-.381.386-.83.701-1.334.953c-.992.496-2.185.73-3.347.842zm-26.246.473V79.23l-.215-.002l-7.55-7.566zm-16.973.426c.776 1.198 1.545 2.4 2.319 3.6v7.142l-4.973-8.092zm83.371.607l4.46 4.452v10.992h-4.46zm-88.02.389l1.313 2.137l-7.473 7.463v-9.582zm1.389 2.26l5.578 9.076V84H12.404v-5.533zm64.602.58c.51.747.808 1.621.808 2.693c0 1.25-.304 2.176-.808 2.889zm-52.26.223l7.478 7.496l-3.168-.02l-2.369.012a43.5 43.5 0 0 1-4.369-6.108zm46.832.025h.006v4.846h-.006a2.423 2.423 0 1 1 0-4.846m.144.008a2.42 2.42 0 0 1 0 4.832zm-53.322.156l5.248 8.146l3.586-.017a40 40 0 0 0 2.983 2.996l.05.047l.047-.053l2.633-2.976h.113l3.65 3.66H40.6l-4.099.025l-.475.25h-6.648c-.737-.799-1.294-1.546-1.668-2.04l-1.76-2.864zm85.928 1.644l2.567 2.563v6.977h-1.551v.138h3.238v-.138h-1.549v-6.838L122.327 84h-10.45zm-17.135.323h8.487V84H84.653l.869-.87c.15-.07.304-.129.453-.203c2.123-1.063 4.04-2.743 4.977-5.239zm-49.266.549v5.392h3.791l-4.025 3.895h-.191v-8.807zm-.843.953v8.334h-.176l-3.65-3.658l.21.001v-.591zm23.57 2.726c2.969 1.002 6.407 2.205 9.54 2.186c.718 0 1.511-.045 2.313-.149l3.08 2.98c-2.097.624-4.15.817-5.396.817h-.016c-2.357.091-6.681-.44-9.521-1.658zm15.936.553V82.8c-.283.104-.565.204-.848.291l-3.055-2.955c1.008-.143 2.026-.394 2.942-.852c.34-.17.658-.38.96-.613m-72.568.63v4.425H7.139zm37.896.53H60.71v3.895H45.44zm-12.863.213l3.709.022l-2.504 2.83a40 40 0 0 1-2.836-2.844zm-10.654.643l1.072 1.744l.012.015c.278.37.712.938 1.234 1.555H25.95zm59.217 2.601l-.612.614v-.366q.307-.116.612-.248m-1.028.399v.224l-.17-.164zm-.316.113l.209.201h-.885c.225-.064.45-.127.676-.201m-54.305.34h6.244l-3.867 2.039c-.95-.627-1.724-1.347-2.377-2.04m25.947 5.373c-.507 0-.945.087-1.31.27a1.87 1.87 0 0 0-.844.863c-.193.385-.284.871-.284 1.46v.352l-1.171.317a.14.14 0 0 0-.102.132v.5a.14.14 0 0 0 .139.139h1.134v5.9a.14.14 0 0 0 .14.14h1.089a.14.14 0 0 0 .139-.14v-5.9h1.654a.14.14 0 0 0 .139-.139v-.812a.14.14 0 0 0-.14-.139h-1.653v-.361c0-.53.1-.9.267-1.115c.173-.222.43-.334.817-.334q.273 0 .533.058l.004.002q.276.055.492.121a.14.14 0 0 0 .172-.088l.283-.818a.14.14 0 0 0-.088-.178a5 5 0 0 0-.627-.16a4 4 0 0 0-.783-.07m61.094.068a.14.14 0 0 0-.125.139v9.726a.14.14 0 0 0 .139.14h1.084a.14.14 0 0 0 .138-.14v-2.418l.715-.625l2.451 3.13a.14.14 0 0 0 .11.052h1.314a.139.139 0 0 0 .11-.225l-3.032-3.83l2.81-2.838a.139.139 0 0 0-.099-.236h-1.281a.14.14 0 0 0-.098.041l-2.39 2.426l-.002.002q-.189.199-.46.52h-.001l-.182.218l.014-.271v-.002q.02-.365.021-.62v-5.05a.14.14 0 0 0-.138-.139zm-29.904 2.621c-.665 0-1.253.153-1.754.46a3.1 3.1 0 0 0-1.156 1.308c-.27.56-.4 1.219-.4 1.973c0 .771.145 1.434.443 1.98a3 3 0 0 0 1.252 1.244h.002q.81.417 1.877.416q.737 0 1.287-.11q.554-.108 1.111-.345a.14.14 0 0 0 .084-.129v-.912a.14.14 0 0 0-.191-.129q-.555.228-1.069.344q-.506.114-1.177.115c-.714 0-1.244-.199-1.622-.59c-.352-.364-.545-.895-.58-1.601h4.823a.14.14 0 0 0 .138-.139v-.644q0-.96-.363-1.688a2.7 2.7 0 0 0-1.058-1.144q-.696-.408-1.647-.407zm18.799 0c-.706 0-1.325.145-1.848.438a2.9 2.9 0 0 0-1.199 1.265q-.418.825-.416 1.975q0 .864.246 1.555q.251.686.705 1.166l.002.002q.461.478 1.084.732h.002q.632.248 1.379.248q.796 0 1.435-.248q.646-.255 1.102-.734q.456-.48.693-1.168q.24-.69.239-1.553q.001-1.146-.43-1.97a3 3 0 0 0-1.205-1.27q-.773-.438-1.79-.436zm-39.098.014a5.2 5.2 0 0 0-1.361.174a6.3 6.3 0 0 0-1.143.416a.14.14 0 0 0-.066.178l.336.789a.14.14 0 0 0 .185.07q.45-.208.953-.361q.492-.15 1.037-.15c.464 0 .802.11 1.037.32c.225.199.356.57.356 1.14v.285l-1.11.045c-1.177.034-2.066.234-2.67.623c-.602.388-.917.97-.917 1.692c0 .474.102.878.312 1.2v.003c.212.317.502.557.861.713h.002q.543.23 1.223.23q.637.001 1.09-.13h.002q.454-.139.805-.405l.001-.002c.177-.138.34-.319.504-.504l.168.805a.14.14 0 0 0 .135.111h.795a.14.14 0 0 0 .139-.139V94.66c0-.828-.216-1.461-.67-1.861c-.452-.398-1.126-.584-2.004-.584m-5.162.115a2.4 2.4 0 0 0-.988.2q-.436.197-.77.535c-.147.145-.259.317-.377.484l-.09-.967a.14.14 0 0 0-.138-.127h-.907a.14.14 0 0 0-.138.139v6.851a.14.14 0 0 0 .138.14h1.096a.14.14 0 0 0 .139-.14V95.77q0-.51.156-.912v-.002q.156-.414.424-.698l.002-.002q.269-.291.62-.441h.003a1.9 1.9 0 0 1 .765-.156a3.4 3.4 0 0 1 .768.09a.14.14 0 0 0 .17-.116l.139-.963a.14.14 0 0 0-.11-.156a4 4 0 0 0-.437-.058a5 5 0 0 0-.465-.026m13.273 0q-.48 0-.908.131a2.6 2.6 0 0 0-.778.39a2.2 2.2 0 0 0-.427.434l-.122-.715a.14.14 0 0 0-.136-.115h-.881a.14.14 0 0 0-.139.139v6.851a.14.14 0 0 0 .139.14h1.09a.14.14 0 0 0 .138-.14V95.82q.002-.79.184-1.31v-.002c.123-.347.312-.596.574-.766c.26-.168.615-.26 1.074-.26c.32 0 .574.06.766.17l.002.002c.197.107.34.263.44.485v.002c.102.222.158.51.158.867v4.438a.14.14 0 0 0 .138.138h1.084a.14.14 0 0 0 .139-.138v-3.832c0-.727.154-1.257.441-1.606c.284-.345.74-.525 1.41-.525c.47 0 .793.127 1.012.373l.002.002c.223.24.346.617.346 1.15v4.438a.14.14 0 0 0 .139.138h1.076a.14.14 0 0 0 .138-.138v-4.489c0-.892-.205-1.566-.644-1.994h-.002c-.435-.428-1.073-.633-1.889-.633q-.764 0-1.412.307h-.002a2.3 2.3 0 0 0-.931.814c-.181-.347-.435-.632-.784-.812c-.392-.209-.872-.309-1.435-.309m39.352 0q-.54 0-.99.2q-.436.197-.77.535c-.146.145-.257.317-.375.484l-.092-.967a.14.14 0 0 0-.138-.127h-.907a.14.14 0 0 0-.138.139v6.851a.14.14 0 0 0 .138.14h1.098a.14.14 0 0 0 .139-.14V95.77q0-.51.154-.912v-.002q.157-.414.426-.698v-.002q.27-.29.623-.441a1.9 1.9 0 0 1 .765-.156a3.4 3.4 0 0 1 .768.09a.14.14 0 0 0 .172-.116l.138-.963a.14.14 0 0 0-.11-.156a4 4 0 0 0-.436-.058h-.002a4 4 0 0 0-.463-.026m-22.947.125a.14.14 0 0 0-.133.178l1.984 6.852a.14.14 0 0 0 .133.1h1.229a.14.14 0 0 0 .13-.095l1.34-3.966v-.002a9 9 0 0 0 .166-.514q.073-.256.133-.488v-.004a7 7 0 0 0 .076-.287l.075.287l.002.006l.138.474V95l.166.502l1.28 3.986a.14.14 0 0 0 .132.096h1.268a.14.14 0 0 0 .133-.1l1.99-6.851a.14.14 0 0 0-.133-.178H99.87a.14.14 0 0 0-.133.102l-1.05 3.783q-.106.388-.206.764v.002c-.06.242-.11.464-.158.668a16 16 0 0 0-.178-.63v-.001a16 16 0 0 0-.191-.627v-.002l-1.281-3.963a.14.14 0 0 0-.131-.096h-1.176a.14.14 0 0 0-.133.096l-1.326 3.969a17 17 0 0 0-.285.973v.001l-.078.32l-.008-.037a11 11 0 0 0-.164-.69v-.003a27 27 0 0 0-.197-.744l-1.04-3.783a.14.14 0 0 0-.132-.102zm-4.23.875c.391 0 .7.084.935.24c.239.156.415.37.533.66v.004a2.6 2.6 0 0 1 .18.881h-3.485c.08-.544.255-.98.545-1.285c.32-.334.738-.5 1.291-.5m18.786.026c.488 0 .871.103 1.162.3c.296.2.514.482.659.86v.002q.219.563.22 1.361q-.001.805-.22 1.383a1.77 1.77 0 0 1-.664.87l-.002.003c-.292.202-.67.306-1.149.306c-.483 0-.864-.105-1.156-.306c-.296-.204-.513-.491-.658-.873q-.22-.578-.22-1.383c0-.814.169-1.434.491-1.873v-.002c.322-.432.818-.648 1.537-.648m-37.752 2.73v.486c0 .648-.188 1.104-.56 1.413c-.38.314-.868.474-1.483.474c-.39 0-.686-.086-.906-.252c-.212-.16-.32-.395-.32-.758c0-.412.155-.705.49-.93c.327-.218.94-.361 1.826-.394z'/%3E%3C/svg%3E");
+  }
+  .icon-\[fontisto--aws\] {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='black' d='M12.248 6.685c-.656 2.694-.614 2.55-1.209 5.014a.43.43 0 0 1-.504.4h.003h-.675a.4.4 0 0 1-.463-.34v-.002c-.577-1.846-1.35-4.41-1.87-6.125c-.192-.633-.066-.618.436-.605c.174.005.342 0 .515 0a.39.39 0 0 1 .426.331v.002c.169.605.281 1.069 1.246 4.88q.029.112.066.215h.051c.023-.094.051-.182.075-.277q.548-2.313 1.092-4.63c.113-.48.314-.525.8-.525h.356c.32.005.422.07.502.389c.281 1.097 1.102 4.77 1.251 5.174c.24-.858-.084.37 1.336-5.108c.098-.379.192-.454.577-.454h.591c.253.005.328.084.267.333c-.113.446-.136.464-1.935 6.228c-.146.464-.197.506-.684.506h-.497c-.342 0-.431-.061-.515-.394c-.202-.759-1.092-4.485-1.238-5.01zm-6.364 5.211a.41.41 0 0 0 .661.112l.295-.197c.32-.211.342-.295.169-.633a2.6 2.6 0 0 1-.296-1.218v-.045v.002c0-.146.028-2.61-.042-3.13A2.03 2.03 0 0 0 5.2 4.976l-.014-.003a4.5 4.5 0 0 0-1.552-.139l.016-.001a4.7 4.7 0 0 0-2.025.547l.025-.012a.4.4 0 0 0-.191.227l-.001.003a1.9 1.9 0 0 0-.033.575l-.001-.008c.028.277.122.328.384.24c.24-.08.469-.182.708-.253a3.44 3.44 0 0 1 2.09-.074l-.024-.006c.317.095.564.334.668.639l.002.007a3 3 0 0 1 .11 1.141l.001-.012c0 .258-.005.258-.258.211a6 6 0 0 0-1.987-.144l.024-.002a2.53 2.53 0 0 0-1.787.933l-.004.005c-.26.36-.416.811-.416 1.298q0 .296.073.569l-.003-.016a1.76 1.76 0 0 0 1.225 1.422l.012.003a2.87 2.87 0 0 0 2.71-.45l-.006.005c.178-.131.338-.29.52-.446c.146.234.272.454.417.656zm-.72-2.887h.005a.2.2 0 0 1 .197.242V9.25c-.01.178.005.356-.014.534c-.05.523-.377.959-.83 1.164l-.009.004a2.2 2.2 0 0 1-1.232.234l.009.001a1.003 1.003 0 0 1-.917-1.24l-.001.007c.026-.548.46-.987 1.004-1.021h.003a4.6 4.6 0 0 1 1.824.085l-.032-.007zM21.51 12.06a2.05 2.05 0 0 0 1.367-2.357l.002.013a1.75 1.75 0 0 0-1.169-1.379l-.012-.004a20 20 0 0 1-2.383-.905l.129.053a.64.64 0 0 1-.356-.559v-.001a.81.81 0 0 1 .717-.927h.003a3.2 3.2 0 0 1 1.337-.015l-.02-.003c.342.066.67.197 1.003.295c.131.042.277.098.366-.075a.78.78 0 0 0-.338-1.019l-.004-.002a3.9 3.9 0 0 0-1.686-.373c-.546 0-1.066.11-1.54.308l.026-.01a1.93 1.93 0 0 0-.101 3.552l.012.005c.361.174.754.277 1.134.417s.759.272 1.13.426a.822.822 0 0 1 .059 1.404l-.003.002c-1.298.72-3.04-.113-3.243-.178c-.154-.051-.248.01-.295.174a.782.782 0 0 0 .539 1.063l.005.001a4.8 4.8 0 0 0 1.79.336c.546 0 1.072-.089 1.563-.253l-.035.01zm-7.634 7.625a16.5 16.5 0 0 0 6.763-2.244l-.076.042c.375-.22.726-.48 1.082-.736c.342-.24.15-.862-.53-.572c-2.344 1.029-5.066 1.687-7.925 1.821l-.051.002a22.3 22.3 0 0 1-4.393-.235l.123.016C5.752 17.33 2.945 16.321.44 14.852l.109.059a1.1 1.1 0 0 0-.297-.139l-.008-.002c-.23-.051-.361.22-.113.454a17.2 17.2 0 0 0 11.716 4.578h.014h-.001c.675-.038 1.35-.042 2.015-.117zm8.187-4.32c.694.038.909.277.736.946c-.178.694-.436 1.369-.651 2.053c-.042.136-.197.295-.038.413c.174.122.305-.047.422-.154a4.3 4.3 0 0 0 1.044-1.555l.01-.029a4.6 4.6 0 0 0 .408-1.919v-.047v.002c-.01-.29-.084-.413-.366-.492a4 4 0 0 0-.757-.148l-.016-.001a5.2 5.2 0 0 0-2.936.51l.03-.014a2.4 2.4 0 0 0-.412.28l.004-.003c-.051.042-.15.248.113.286a1 1 0 0 0 .283-.015l-.007.001a12.7 12.7 0 0 1 2.151-.112h-.019z'/%3E%3C/svg%3E");
+  }
+  .block {
+    display: block;
+  }
+  .flex {
+    display: flex;
+  }
+  .grid {
+    display: grid;
+  }
+  .hidden {
+    display: none;
+  }
+  .w-full {
+    width: 100%;
+  }
+  .max-w-\[260px\] {
+    max-width: 260px;
+  }
+  .max-w-md {
+    max-width: var(--container-md);
+  }
+  .max-w-screen-xl {
+    max-width: var(--breakpoint-xl);
+  }
+  .max-w-xs {
+    max-width: var(--container-xs);
+  }
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .justify-evenly {
+    justify-content: space-evenly;
+  }
+  .justify-items-center {
+    justify-items: center;
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+  .gap-6 {
+    gap: calc(var(--spacing) * 6);
+  }
+  .space-y-6 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(
+        calc(var(--spacing) * 6) * var(--tw-space-y-reverse)
+      );
+      margin-block-end: calc(
+        calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse))
+      );
+    }
+  }
+  .rounded {
+    border-radius: 0.25rem;
+  }
+  .rounded-xl {
+    border-radius: var(--radius-xl);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+  }
+  .border-dashed {
+    --tw-border-style: dashed;
+    border-style: dashed;
+  }
+  .border-border {
+    border-color: var(--color-border);
+  }
+  .border-success {
+    border-color: var(--color-success);
+  }
+  .bg-bg {
+    background-color: var(--color-bg);
+  }
+  .bg-danger {
+    background-color: var(--color-danger);
+  }
+  .bg-success {
+    background-color: var(--color-success);
+  }
+  .p-2 {
+    padding: calc(var(--spacing) * 2);
+  }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
+  }
+  .p-6 {
+    padding: calc(var(--spacing) * 6);
+  }
+  .px-3 {
+    padding-inline: calc(var(--spacing) * 3);
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .px-5 {
+    padding-inline: calc(var(--spacing) * 5);
+  }
+  .py-1 {
+    padding-block: calc(var(--spacing) * 1);
+  }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
+  }
+  .py-8 {
+    padding-block: calc(var(--spacing) * 8);
+  }
+  .py-10 {
+    padding-block: calc(var(--spacing) * 10);
+  }
+  .pr-\[4\%\] {
+    padding-right: 4%;
+  }
+  .pl-\[4\%\] {
+    padding-left: 4%;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .font-cli-text {
+    font-family: var(--font-cli-text);
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+  .font-sub-title {
+    font-family: var(--font-sub-title);
+  }
+  .font-title {
+    font-family: var(--font-title);
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-5xl {
+    font-size: var(--text-5xl);
+    line-height: var(--tw-leading, var(--text-5xl--line-height));
+  }
+  .text-base {
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .leading-relaxed {
+    --tw-leading: var(--leading-relaxed);
+    line-height: var(--leading-relaxed);
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .font-light {
+    --tw-font-weight: var(--font-weight-light);
+    font-weight: var(--font-weight-light);
+  }
+  .tracking-wide {
+    --tw-tracking: var(--tracking-wide);
+    letter-spacing: var(--tracking-wide);
+  }
+  .text-accent {
+    color: var(--color-accent);
+  }
+  .text-bg {
+    color: var(--color-bg);
+  }
+  .text-primary {
+    color: var(--color-primary);
+  }
+  .text-text {
+    color: var(--color-text);
+  }
+  .transition {
+    transition-property: color, background-color, border-color, outline-color,
+      text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via,
+      --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate,
+      filter, -webkit-backdrop-filter, backdrop-filter, display, visibility,
+      content-visibility, overlay, pointer-events;
+    transition-timing-function: var(
+      --tw-ease,
+      var(--default-transition-timing-function)
+    );
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .outline-none {
+    --tw-outline-style: none;
+    outline-style: none;
+  }
+  .hover\:bg-primary {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-primary);
+      }
+    }
+  }
+  .focus\:border-primary {
+    &:focus {
+      border-color: var(--color-primary);
+    }
+  }
+  .focus\:ring-0 {
+    &:focus {
+      --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
+        calc(0px + var(--tw-ring-offset-width))
+        var(--tw-ring-color, currentcolor);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+        var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .sm\:max-w-sm {
+    @media (width >= 40rem) {
+      max-width: var(--container-sm);
+    }
+  }
+  .sm\:text-2xl {
+    @media (width >= 40rem) {
+      font-size: var(--text-2xl);
+      line-height: var(--tw-leading, var(--text-2xl--line-height));
+    }
+  }
+  .sm\:text-4xl {
+    @media (width >= 40rem) {
+      font-size: var(--text-4xl);
+      line-height: var(--tw-leading, var(--text-4xl--line-height));
+    }
+  }
+  .sm\:text-9xl {
+    @media (width >= 40rem) {
+      font-size: var(--text-9xl);
+      line-height: var(--tw-leading, var(--text-9xl--line-height));
+    }
+  }
+  .md\:flex {
+    @media (width >= 48rem) {
+      display: flex;
+    }
+  }
+  .md\:max-w-2xl {
+    @media (width >= 48rem) {
+      max-width: var(--container-2xl);
+    }
+  }
+  .md\:max-w-md {
+    @media (width >= 48rem) {
+      max-width: var(--container-md);
+    }
+  }
+  .lg\:prose-xl {
+    @media (width >= 64rem) {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      :where(p):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        margin-top: 1.2em;
+        margin-bottom: 1.2em;
+      }
+      :where([class~="lead"]):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        font-size: 1.2em;
+        line-height: 1.5;
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+      :where(blockquote):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        margin-top: 1.6em;
+        margin-bottom: 1.6em;
+        padding-inline-start: 1.0666667em;
+      }
+      :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        font-size: 2.8em;
+        margin-top: 0;
+        margin-bottom: 0.8571429em;
+        line-height: 1;
+      }
+      :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        font-size: 1.8em;
+        margin-top: 1.5555556em;
+        margin-bottom: 0.8888889em;
+        line-height: 1.1111111;
+      }
+      :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        font-size: 1.5em;
+        margin-top: 1.6em;
+        margin-bottom: 0.6666667em;
+        line-height: 1.3333333;
+      }
+      :where(h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        margin-top: 1.8em;
+        margin-bottom: 0.6em;
+        line-height: 1.6;
+      }
+      :where(img):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        margin-top: 2em;
+        margin-bottom: 2em;
+      }
+      :where(picture):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        margin-top: 2em;
+        margin-bottom: 2em;
+      }
+      :where(picture > img):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      :where(video):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        margin-top: 2em;
+        margin-bottom: 2em;
+      }
+      :where(kbd):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        font-size: 0.9em;
+        border-radius: 0.3125rem;
+        padding-top: 0.25em;
+        padding-inline-end: 0.4em;
+        padding-bottom: 0.25em;
+        padding-inline-start: 0.4em;
+      }
+      :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        font-size: 0.9em;
+      }
+      :where(h2 code):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        font-size: 0.8611111em;
+      }
+      :where(h3 code):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        font-size: 0.9em;
+      }
+      :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        font-size: 0.9em;
+        line-height: 1.7777778;
+        margin-top: 2em;
+        margin-bottom: 2em;
+        border-radius: 0.5rem;
+        padding-top: 1.1111111em;
+        padding-inline-end: 1.3333333em;
+        padding-bottom: 1.1111111em;
+        padding-inline-start: 1.3333333em;
+      }
+      :where(ol):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        margin-top: 1.2em;
+        margin-bottom: 1.2em;
+        padding-inline-start: 1.6em;
+      }
+      :where(ul):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        margin-top: 1.2em;
+        margin-bottom: 1.2em;
+        padding-inline-start: 1.6em;
+      }
+      :where(li):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        margin-top: 0.6em;
+        margin-bottom: 0.6em;
+      }
+      :where(ol > li):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        padding-inline-start: 0.4em;
+      }
+      :where(ul > li):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        padding-inline-start: 0.4em;
+      }
+      :where(.lg\:prose-xl > ul > li p):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        margin-top: 0.8em;
+        margin-bottom: 0.8em;
+      }
+      :where(.lg\:prose-xl > ul > li > p:first-child):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        margin-top: 1.2em;
+      }
+      :where(.lg\:prose-xl > ul > li > p:last-child):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        margin-bottom: 1.2em;
+      }
+      :where(.lg\:prose-xl > ol > li > p:first-child):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        margin-top: 1.2em;
+      }
+      :where(.lg\:prose-xl > ol > li > p:last-child):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        margin-bottom: 1.2em;
+      }
+      :where(ul ul, ul ol, ol ul, ol ol):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        margin-top: 0.8em;
+        margin-bottom: 0.8em;
+      }
+      :where(dl):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        margin-top: 1.2em;
+        margin-bottom: 1.2em;
+      }
+      :where(dt):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        margin-top: 1.2em;
+      }
+      :where(dd):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        margin-top: 0.6em;
+        padding-inline-start: 1.6em;
+      }
+      :where(hr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        margin-top: 2.8em;
+        margin-bottom: 2.8em;
+      }
+      :where(hr + *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        margin-top: 0;
+      }
+      :where(h2 + *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        margin-top: 0;
+      }
+      :where(h3 + *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        margin-top: 0;
+      }
+      :where(h4 + *):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        margin-top: 0;
+      }
+      :where(table):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        font-size: 0.9em;
+        line-height: 1.5555556;
+      }
+      :where(thead th):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        padding-inline-end: 0.6666667em;
+        padding-bottom: 0.8888889em;
+        padding-inline-start: 0.6666667em;
+      }
+      :where(thead th:first-child):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        padding-inline-start: 0;
+      }
+      :where(thead th:last-child):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        padding-inline-end: 0;
+      }
+      :where(tbody td, tfoot td):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        padding-top: 0.8888889em;
+        padding-inline-end: 0.6666667em;
+        padding-bottom: 0.8888889em;
+        padding-inline-start: 0.6666667em;
+      }
+      :where(tbody td:first-child, tfoot td:first-child):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        padding-inline-start: 0;
+      }
+      :where(tbody td:last-child, tfoot td:last-child):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        padding-inline-end: 0;
+      }
+      :where(figure):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+        margin-top: 2em;
+        margin-bottom: 2em;
+      }
+      :where(figure > *):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      :where(figcaption):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        font-size: 0.9em;
+        line-height: 1.5555556;
+        margin-top: 1em;
+      }
+      :where(.lg\:prose-xl > :first-child):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        margin-top: 0;
+      }
+      :where(.lg\:prose-xl > :last-child):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        ) {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+@property --tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+    ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+    *,
+    ::before,
+    ::after,
+    ::backdrop {
+      --tw-space-y-reverse: 0;
+      --tw-border-style: solid;
+      --tw-leading: initial;
+      --tw-font-weight: initial;
+      --tw-tracking: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+asgiref==3.8.1
+bleach==6.2.0
+Django==5.2.1
+django-environ==0.12.0
+django-markdownfield==0.11.0
+Markdown==3.8
+pillow==11.2.1
+shortuuid==1.0.13
+sqlparse==0.5.3
+tinycss2==1.4.0
+tzdata==2025.2
+webencodings==0.5.1

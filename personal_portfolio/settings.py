@@ -13,9 +13,9 @@ environ.Env.read_env()
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env("DEBUG")
+DEBUG = env.bool("DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
  
 
 # Application definition
@@ -28,8 +28,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'markdownfield',
     'django.contrib.staticfiles',
+    'storages',
     'projects',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -66,8 +68,8 @@ WSGI_APPLICATION = 'personal_portfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': env("DB_ENGINE", default='django.db.backends.sqlite3'),
+        'NAME': env("DB_NAME", default=BASE_DIR / 'db.sqlite3'),
     }
 }
 
@@ -103,15 +105,53 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
+AWS_S3_REGION_NAME = env("AWS_S3_REGION_NAME")
+AWS_S3_ADDRESSING_STYLE = "path"  # Required for Lightsail buckets
+AWS_S3_SIGNATURE_VERSION = "s3v4"
+
+# S3 static and media file settings
+AWS_S3_CUSTOM_DOMAIN = env("AWS_S3_CUSTOM_DOMAIN")
+
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
+
+
+STORAGES = {
+  "default":{
+    "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+    "OPTIONS": {"location": "media"},
+  },
+  "staticfiles": {
+    "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+    "OPTIONS": {"location": "static"},
+  }
+}
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+X_FRAME_OPTIONS = "DENY"
+SECURE_SSL_REDIRECT = False #change to True in production
+SECURE_HSTS_SECONDS = 31536000  # 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+
+
